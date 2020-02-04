@@ -1,0 +1,89 @@
+// @font-face {
+//     font-family:Xirod;
+//     src: url(s/assets/fonts/Xirod.ttf);
+// }
+
+.header {
+    display: flex;
+    flex-direction: row;
+    background-color: #202225;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    height: 64px;
+    align-items: center;
+
+    &__logo {
+        display: flex;
+        flex-direction: row;
+        margin: 10px;
+        align-items: center;
+        
+        .hydra  {
+            height: 32px;
+            width: 32px;
+        }
+
+        h1{
+            font-family: Xirod;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            margin-left: 20px;
+            color: #FFFFFF;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: row;
+        margin-left: auto;
+        align-items: center;
+
+        img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .profileblock {
+            margin-right: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: #FFFFFF;
+            p{
+                color: #FFFFFF;
+            }
+            p:hover {
+                color: rgb(15, 136, 63);
+            }
+
+            &__avatar{
+                display: flex;
+                margin-right: 10px;
+                height: 32px;
+                width: 32px;
+                background-color: #36393F;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                
+                p {
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #14A64E ;
+                }
+            }
+        }
+
+        .enterButton {
+            border-color: #FFFFFF;
+            background-color: #202225;
+            color: #FFFFFF;
+        }
+
+        .enterButton:hover{
+            border-color: rgb(15, 136, 63);
+            color: rgb(15, 136, 63);
+        }
+    }
+}

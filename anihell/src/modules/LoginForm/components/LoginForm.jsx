@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input } from 'antd';
 import {Link} from 'react-router-dom';
+import hydra  from 'assets/hydra.svg';
 
 import {Button, Block} from "components";
 
@@ -9,6 +10,7 @@ class LoginForm extends Component {
         return(
             <div>
                 <div className="auth__top">
+                    <img src={hydra}></img>
                     <h2>Войти в аккаунт</h2>
                     <p>Пожалуйста, войдите в свой аккаунт</p>
                 </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
-import hydra  from 'assets/hydra.svg';
 
+import {RegisterForm} from 'modules'
 import {LoginForm} from 'modules'
 
 import './Auth.scss'
@@ -9,8 +9,8 @@ import './Auth.scss'
 const Auth = () => (
     <section className="auth">
             <div className="auth__content">
-                <img src={hydra}></img>
                 <Route exact path={["/", "/login"]} component={LoginForm} />
+                <Route exact path={["/", "/register"]} component={RegisterForm} />
             </div>
         </section>
 );
