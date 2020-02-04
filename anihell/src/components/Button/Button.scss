@@ -1,0 +1,9 @@
+.button {
+    &--large {
+        height: 56px !important;
+        background-color: #14A64E;
+        border-color: rgb(15, 136, 63);;
+    }
+}
+
+.button:hover {background-color: rgb(86, 73, 112);};
