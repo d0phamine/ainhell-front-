@@ -1,0 +1,32 @@
+import React from 'react';
+import {Link} from 'react-router-dom';
+import {Card} from 'antd';
+import PropTypes from 'prop-types';
+
+
+import './Card.scss';
+import plus from 'assets/plus.svg'
+import {Button} from "components";
+
+
+const BaseCard = ({title, title_image}) => (
+    <Card className="card" title={title} extra={<a href="#">More</a>} >
+      <div className="card__content">
+          <div className="card__image">
+              <img src={title_image}/>
+          </div>
+          <div className="card__usability">
+              <Button className="addbutton"><img src={plus}></img></Button>
+          </div>
+      </div>
+    </Card>
+)
+
+
+
+Card.propTypes = {
+    title: PropTypes.string,
+    title_image: PropTypes.string
+};
+
+export default BaseCard;

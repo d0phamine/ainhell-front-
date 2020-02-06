@@ -1,6 +1,44 @@
 .general{
+    
+    height: auto; 
     display: flex;
     flex-direction: column;
-    height: 100%;
     background-color: #36393F;
+
+    .footer {
+        height: 100px;
+    }
+
+    &__content{
+        // height: 100%;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        align-items: center;
+        
+
+        .content-header{
+            display: flex;
+            margin-top: 30px;
+            
+            border-bottom: #FFFFFF solid 1px;
+
+            h1{
+                font-family: Xirod;
+                font-size: 24px;
+                color: #FFFFFF;
+                padding-bottom: 10px;
+            }
+        }
+
+        .content-cards{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            margin-top: 30px;
+            justify-content: center;
+            // padding-left: 170px;
+            // padding-right: 170px;
+        }
+    }
 }
