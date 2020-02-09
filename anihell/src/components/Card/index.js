@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Card} from 'antd';
+import {Card, Rate} from 'antd';
 import PropTypes from 'prop-types';
 
 
@@ -17,6 +17,7 @@ const BaseCard = ({title, title_image}) => (
           </div>
           <div className="card__usability">
               <Button className="addbutton"><img src={plus}></img></Button>
+              <Rate className="card__rate" allowHalf defaultValue={0} />
           </div>
       </div>
     </Card>

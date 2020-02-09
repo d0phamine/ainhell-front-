@@ -12,7 +12,7 @@ const General = () => (
         <Header/>
         <div className="general__content">
             <div className="content-header">
-                <h1>On going</h1>
+                <h1>Ongoing</h1>
             </div>
             <div className="content-cards">
                 <BaseCard
@@ -29,7 +29,7 @@ const General = () => (
                 />
                 <BaseCard
                     title="Токийский Гуль"
-                    title_image="https://lh3.googleusercontent.com/proxy/QISrpIdHQSGUeVHMsi-651hWd19DomNk2SAkm3w124kQKSqnJ2kjNccTz--Zajslg6EJd_P0Xoc6IiOd8e4EFwP49ACvqdFgopeKQOGPNHxITb1gq_svP02_Kg"
+                    title_image="https://cdn.europosters.eu/image/750/posters/tokyo-ghoul-kaneki-i30934.jpg"
                 />
                 
             </div>
@@ -48,7 +48,7 @@ const General = () => (
                 />
                 <BaseCard
                     title="Токийский Гуль"
-                    title_image="https://lh3.googleusercontent.com/proxy/QISrpIdHQSGUeVHMsi-651hWd19DomNk2SAkm3w124kQKSqnJ2kjNccTz--Zajslg6EJd_P0Xoc6IiOd8e4EFwP49ACvqdFgopeKQOGPNHxITb1gq_svP02_Kg"
+                    title_image="https://cdn.europosters.eu/image/750/posters/tokyo-ghoul-kaneki-i30934.jpg"
                 />
                 
             </div>
