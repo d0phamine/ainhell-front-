@@ -10,7 +10,7 @@ import {Button} from "components";
 
 
 const BaseCard = ({title, title_image}) => (
-    <Card className="card" title={title} extra={<a href="#">More</a>} >
+    <Card className="card" title={BaseCard.name} extra={<a href="#">More</a>} >
       <div className="card__content">
           <div className="card__image">
               <img src={title_image}/>
