@@ -31,27 +31,34 @@ import "./Cardlist.scss"
 
      render() {
         const {cards} = this.state
+
+        
+        
         return (
-            console.log(this.state.cards.length),
-            <div>
+            console.log(cards.length),
+            
+            <div className="card__block">
+                
                 {
+                    
                     cards.length ? (
-                        cards.map(card => <div key={cards.id} ><p>{cards.name}</p></div>)
+                        cards.map((card ,index) => 
+                        <Card key={cards[index].id} className="card"  extra={<a href="#">More</a>} title={cards[index].name} onChange={this.changeHandler} >
+                        <div className="card__content">
+                            <div className="card__image">
+                                <img src={cards[index].img}/>
+                            </div>
+                            <div className="card__usability">
+                                <Button className="addbutton"><img src={plus}></img></Button>
+                                <Rate className="card__rate" allowHalf defaultValue={0} />
+                            </div>
+                        </div>
+                    </Card>)
                     )
                      : null
                 }
                 
-               {/* <Card  className="card"  extra={<a href="#">More</a>} onChange={this.changeHandler} >
-                    <div className="card__content">
-                        <div className="card__image">
-                            <img src={}/>
-                        </div>
-                        <div className="card__usability">
-                            <Button className="addbutton"><img src={plus}></img></Button>
-                            <Rate className="card__rate" allowHalf defaultValue={0} />
-                        </div>
-                    </div>
-                </Card> */}
+               
             </div>
         )    
     }
