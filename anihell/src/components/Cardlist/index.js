@@ -9,7 +9,7 @@ import plus from 'assets/plus.svg'
 import "./Cardlist.scss"
 
 
- class Cardlist extends React.Component {
+class Cardlist extends React.Component {
     constructor(props) {
       super(props)
     
@@ -18,6 +18,9 @@ import "./Cardlist.scss"
       };
     };
     
+
+    c
+
 
     componentDidMount(){
         axios.get('http://127.0.0.1:8000/api/animeall/')
@@ -31,8 +34,6 @@ import "./Cardlist.scss"
 
      render() {
         const {cards} = this.state
-
-        
         
         return (
             console.log(cards.length),
