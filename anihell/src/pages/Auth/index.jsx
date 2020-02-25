@@ -1,18 +1,25 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import rootReducer from '../../store/reducers';
 
-import {RegisterForm} from 'modules'
-import {LoginForm} from 'modules'
-
+import LoginFormContainer from '../../modules/LoginForm/LoginFormContainer'
+import RegisterFormContainer from '../../modules/RegisterForm/RegisterFormContainer';
 import './Auth.scss'
 
+
+const store  = createStore(rootReducer);
+
 const Auth = () => (
-    <section className="auth">
+    <Provider store={store}>
+        <section className="auth">
             <div className="auth__content">
-                <Route exact path={["/", "/login"]} component={LoginForm} />
-                <Route exact path={["/", "/register"]} component={RegisterForm} />
+                <Route exact path={["/", "/login"]} component={LoginFormContainer} />
+                <Route exact path={["/", "/register"]} component={RegisterFormContainer} />
             </div>
         </section>
+    </Provider>
 );
 
 

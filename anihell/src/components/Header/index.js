@@ -3,12 +3,15 @@ import {Button} from "components";
 import {Link} from 'react-router-dom';
 import {Icon, Badge, Popover} from 'antd';
 
+import LoginForm from "../../modules/LoginForm/LoginForm"
+
 
 import './Header.scss'
 import hydra from 'assets/hydra.svg'
 import megaphone from 'assets/megaphone.svg'
 import settings from 'assets/settings.svg'
 import survey from 'assets/survey.svg'
+
 
 const text = <span> Оповещения </span>;
 
@@ -22,8 +25,12 @@ const content = (
   </div>
 );
 
-const Header = props =>(
-    <div className='header'>
+class Header extends LoginForm {
+
+
+  render(){
+    return(
+      <div className='header'>
         <div className='header__logo'>
             <img src={hydra} className="hydra"></img>
             <Link to="/"><h1>AniHell</h1></Link>
@@ -40,11 +47,16 @@ const Header = props =>(
               <div className="profileblock__avatar"><p>D</p></div> 
               <Link to="profile"><p>Dophamine</p></Link>
             </div>  
+            <Button className="enterButton" ><Link to="login" >Выйти</Link></Button> />
             <Button className="enterButton"><Link to="login" >Войти</Link></Button> />
         </div>
         
     </div>
-)
+    )
+  }
+}
+  
+
 
 
 export default Header;

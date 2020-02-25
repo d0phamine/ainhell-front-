@@ -1,73 +1,70 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input } from 'antd';
-import {PostData} from './PostData'
-import axios from 'axios';
 import {Link} from 'react-router-dom';
-import {Redirect} from "react-router-dom"
+
 
 
 import hydra  from 'assets/hydra.svg';
 import {Button, Block} from "components";
 
 
+
+
 class LoginForm extends Component {
 
-    constructor()
+    constructor(props)
     {
-        super();
-        this.state={
-            username:'',
-            password:'',
-            login:false,
-            store:null,
-        }
+        super(props);
+        
+        this.onUsernameChange = this.onUsernameChange.bind(this);
+        this.onPasswordChange = this.onPasswordChange.bind(this);
         
     }
 
-    saveToken(token) {
-        sessionStorage.setItem('tokenData', JSON.stringify(token));
-    }
+    // saveToken(token) {
+    //     sessionStorage.setItem('tokenData', JSON.stringify(token));
+    // }
     
-    login(){
-        fetch('http://127.0.0.1:8000/api/api-token-auth/',{
-            method:"POST",
-            body:JSON.stringify(this.state),
-            headers:{
-                'Content-Type':'application/json'
-            }
+    // logout () {
+    //     this.setState({login:false})
+    // }
+
+    // getToken(){
+    //     fetch('http://127.0.0.1:8000/api/api-token-auth/',{
+    //         method:"POST",
+    //         body:JSON.stringify(this.state),
+    //         headers:{
+    //             'Content-Type':'application/json'
+    //         }
             
-        })
-        .then((response)=> {
-            response.json().then((result)=>{
-                console.warn("result",result);
-                localStorage.setItem('login',JSON.stringify({
-                    login:true,
-                    token:result.token
-                }))
-                this.setState({login:true})
-            })
+    //     })
+    //     .then((response)=> {
+    //         response.json().then((result)=>{
+    //             console.warn("result",result);
+    //             localStorage.setItem('login',JSON.stringify({
+    //                 login:true,
+    //                 token:result.token
+    //             }))
+    //             this.setState({login:true})
+    //         })
             
-        })
-    //     if (this.state.username && this.state.password){
-    //         PostData(this.state).then ((result) =>{
-    //             let responseJSON = result;
-    //             if(responseJSON.username){
-    //                 sessionStorage.setItem('username',responseJSON);
-    //                 this.setState({redirect:true});
-    //             }
-    //             else{
-    //                 console.log('login error')
-    //             }
-    //         });
-    //     }
+    //     })
         
+    // }
+
+    onUsernameChange(event) {
+        this.props.setUsernameText(event.target.value)
+    }
+
+    onPasswordChange(event){
+        this.props.setPasswordText(event.target.value)
     }
 
     render(){
         
-        if (this.state.login == true){
-           return(<Redirect to={'/'}/>) 
-        }
+        // if (this.state.login == true){
+        //    return (<Redirect to={'/'}/>) 
+        // }
 
         return(
             <div>
@@ -77,13 +74,14 @@ class LoginForm extends Component {
                     <p>Пожалуйста, войдите в свой аккаунт</p>
                 </div>
                 <Block>
-                        <Form onSubmit={this.handleSubmit} className="login-form">
+                        <Form  className="login-form">
                             <Form.Item validateStatus="success" hasFeedback>
                             
                                 <Input
                                 prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                 placeholder="Username" size="large" 
-                                type="text" onChange={(event)=>{this.setState({username:event.target.value})}}
+                                type="text" onChange={this.onUsernameChange}
+                                value={this.props.username}
                                 />
 
                             </Form.Item>
@@ -94,12 +92,13 @@ class LoginForm extends Component {
                                 type="password"
                                 placeholder="Password"
                                 size="large" 
-                                onChange={(event)=>{this.setState({password:event.target.value})}}
+                                onChange={this.onPasswordChange}
+                                value={this.props.password}
                                 />
                             
                             </Form.Item>
                             <Form.Item>
-                            <Button type="primary" size="large" onClick={()=>{this.login()}}>
+                            <Button type="primary" size="large" onClick={()=>{this.getToken()}}>
                                 Войти в аккаунт
                             </Button>
                             </Form.Item>
