@@ -11,7 +11,8 @@ class LoginFormContainer extends React.Component {
             username={this.props.username} 
             password={this.props.password} 
             setUsernameText={this.props.setUsernameText} 
-            setPasswordText={this.props.setPasswordText}/>
+            setPasswordText={this.props.setPasswordText}
+        />
         ) 
     }
 }

@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Form, Icon, Input } from 'antd';
 import {Link} from 'react-router-dom';
-import hydra  from 'assets/hydra.svg';
 
+import hydra  from 'assets/hydra.svg';
 import {Button, Block} from "components";
 
-const success = false;
 
-class RegisterForm extends React.Component {
-    constructor(props) {
+class RegisterForm extends Component {
+
+    constructor(props) 
+    {
         super(props);
 
         this.onUsernameChange = this.onUsernameChange.bind(this);
@@ -24,12 +25,15 @@ class RegisterForm extends React.Component {
     onPasswordChange(event){
         this.props.setPasswordText(event.target.value)
     }
+
     onNameChange(event){
         this.props.setNameText(event.target.value)
     }
+
     onRepeatPasswordChange(event){
         this.props.setRepeatPasswordText(event.target.value)
     }
+
     render() {
         return(
             <div>
@@ -43,8 +47,7 @@ class RegisterForm extends React.Component {
                 <Form  className="login-form">
                     <Form.Item>
                         <Input
-                        id="email"
-                        prefix={<Icon type="email" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                        prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
                         placeholder="username" 
                         size="large" 
                         onChange={this.onUsernameChange}
@@ -56,7 +59,7 @@ class RegisterForm extends React.Component {
                     
                         <Input
                         prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                        placeholder="Ваше имя"
+                        placeholder="name"
                         size="large"
                         onChange={this.onNameChange}
                         value={this.props.name}
@@ -68,7 +71,6 @@ class RegisterForm extends React.Component {
                         prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                         type="password"
                         placeholder="Пароль"
-                        id="password"
                         size="large" 
                         onChange={this.onPasswordChange}
                         value={this.props.password}
@@ -77,11 +79,11 @@ class RegisterForm extends React.Component {
                     <Form.Item>
                         <Input
                         prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                        type="password"
                         placeholder="Повторите Пароль"
                         size="large"
                         onChange={this.onRepeatPasswordChange}
                         value={this.props.repeatPassword}
-                        type="password"
                         />
                     </Form.Item>
                     <Form.Item>

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Form, Icon, Input } from 'antd';
 import {Link} from 'react-router-dom';
 
-
-
 import hydra  from 'assets/hydra.svg';
 import {Button, Block} from "components";
 

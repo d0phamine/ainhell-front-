@@ -1,6 +1,5 @@
 import React from 'react';
 import {Route} from "react-router-dom"
-import {Cardlist} from 'components'
 import {Auth, General, Profile} from 'pages';
 
 

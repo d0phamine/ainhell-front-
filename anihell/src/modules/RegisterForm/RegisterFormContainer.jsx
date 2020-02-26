@@ -8,15 +8,15 @@ class RegisterFormContainer extends React.Component {
     return(
       <RegisterForm
         username={this.props.username}
-        password={this.props.password}
-        repeatPassword={this.repeatPassword}
-        name={this.name}
         setUsernameText={this.props.setUsernameText}
+        password={this.props.password}
         setPasswordText={this.props.setPasswordText}
+        repeatPassword={this.repeatPassword}
         setRepeatPasswordText={this.props.setRepeatPasswordText}
+        name={this.name}
         setNameText={this.props.setNameText}
       />
-    );
+    )
   }
 }
 

@@ -7,7 +7,6 @@ const defaultState = {
 }
 
 export const loginReducer = (state = defaultState, action) => {
-    console.log(state);
     switch(action.type) {
         case LOGIN_CHANGE_USERNAME_TEXT:
             return {
