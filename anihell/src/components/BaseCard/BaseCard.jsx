@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import './Card.scss';
 import plus from 'assets/plus.svg'
-import {Button} from "components";
+import Button from "../Button/Button";
 
 
 const BaseCard = ({title, title_image}) => (

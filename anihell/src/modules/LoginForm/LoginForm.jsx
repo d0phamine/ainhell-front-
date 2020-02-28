@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input } from 'antd';
 import {Link} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
+
 
 import hydra  from 'assets/hydra.svg';
-import {Button, Block} from "components";
+import Button from "../../components/Button/Button";
+import Block from "../../components/Block/Block"
 
 
 
@@ -16,39 +19,47 @@ class LoginForm extends Component {
         
         this.onUsernameChange = this.onUsernameChange.bind(this);
         this.onPasswordChange = this.onPasswordChange.bind(this);
+        this.onTokenChange = this.onTokenChange.bind(this)
+        this.onAuthChange = this.onAuthChange.bind(this)
         
     }
 
-    // saveToken(token) {
-    //     sessionStorage.setItem('tokenData', JSON.stringify(token));
-    // }
     
-    // logout () {
-    //     this.setState({login:false})
-    // }
+    
+    
 
-    // getToken(){
-    //     fetch('http://127.0.0.1:8000/api/api-token-auth/',{
-    //         method:"POST",
-    //         body:JSON.stringify(this.state),
-    //         headers:{
-    //             'Content-Type':'application/json'
-    //         }
+    takeToken(){
+        fetch('http://127.0.0.1:8000/api/api-token-auth/',{
+            method:"POST",
+            body:JSON.stringify(this.props),
+            headers:{
+                'Content-Type':'application/json'
+            }
             
-    //     })
-    //     .then((response)=> {
-    //         response.json().then((result)=>{
-    //             console.warn("result",result);
-    //             localStorage.setItem('login',JSON.stringify({
-    //                 login:true,
-    //                 token:result.token
-    //             }))
-    //             this.setState({login:true})
-    //         })
+        })
+        .then((response)=> {
+            response.json().then((result)=>{
+                console.warn("result",result);
+                let postTake = true;
+
+                if(typeof result.token == "string"){
+                    this.onAuthChange(true)
+                    this.onTokenChange(result.token);
+                    this.onTokenChange(result.token);
+                }
+            })
             
-    //     })
+        })
         
-    // }
+    }
+
+    onAuthChange(state) {
+        this.props.setAuth(true)
+    }
+
+    onTokenChange(token) {
+        this.props.setToken(token)
+    }
 
     onUsernameChange(event) {
         this.props.setUsernameText(event.target.value)
@@ -60,9 +71,9 @@ class LoginForm extends Component {
 
     render(){
         
-        // if (this.state.login == true){
-        //    return (<Redirect to={'/'}/>) 
-        // }
+        if (this.props.auth == true){
+           return (<Redirect to={'/'}/>) 
+        }
 
         return(
             <div>
@@ -96,7 +107,7 @@ class LoginForm extends Component {
                             
                             </Form.Item>
                             <Form.Item>
-                            <Button type="primary" size="large" onClick={()=>{this.getToken()}}>
+                            <Button type="primary" size="large" onClick={()=>{this.takeToken()}}>
                                 Войти в аккаунт
                             </Button>
                             </Form.Item>

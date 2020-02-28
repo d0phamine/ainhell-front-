@@ -3,7 +3,8 @@ import { Form, Icon, Input } from 'antd';
 import {Link} from 'react-router-dom';
 
 import hydra  from 'assets/hydra.svg';
-import {Button, Block} from "components";
+import Button from "../../components/Button/Button";
+import Block from "../../components/Block/Block"
 
 
 class RegisterForm extends Component {
@@ -62,7 +63,7 @@ class RegisterForm extends Component {
                         placeholder="name"
                         size="large"
                         onChange={this.onNameChange}
-                        value={this.props.name}
+                        // value={this.props.name}
                         />
                     
                     </Form.Item>
@@ -83,7 +84,7 @@ class RegisterForm extends Component {
                         placeholder="Повторите Пароль"
                         size="large"
                         onChange={this.onRepeatPasswordChange}
-                        value={this.props.repeatPassword}
+                        // value={this.props.repeatPassword}
                         />
                     </Form.Item>
                     <Form.Item>

@@ -1,12 +1,15 @@
-import {LOGIN_CHANGE_PASSWORD_TEXT, LOGIN_CHANGE_USERNAME_TEXT} from './actions';
+import {LOGIN_CHANGE_PASSWORD_TEXT, LOGIN_CHANGE_USERNAME_TEXT, GET_TOKEN, CHANGE_AUTH} from './actions';
 
 
 const defaultState = {
     username: '',
-    password:''
+    password:'',
+    token: null,
+    auth: false
 }
 
 export const loginReducer = (state = defaultState, action) => {
+    console.log(state);
     switch(action.type) {
         case LOGIN_CHANGE_USERNAME_TEXT:
             return {
@@ -17,6 +20,16 @@ export const loginReducer = (state = defaultState, action) => {
             return {
                 ...state,
                 password: action.payload
+            }
+        case GET_TOKEN:
+            return{
+                ...state,
+                token: action.payload
+            }
+        case CHANGE_AUTH:
+            return{
+                ...state,
+                auth: action.payload
             }
     }
 

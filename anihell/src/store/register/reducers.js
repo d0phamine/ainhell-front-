@@ -8,7 +8,7 @@ const defaultState = {
 }
 
 export const registerReducer = (state = defaultState, action) => {
-    console.log(state);
+    
     switch(action.type){
         case REGISTER_CHANGE_USERNAME_TEXT:
             return {

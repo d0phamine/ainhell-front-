@@ -1,7 +1,7 @@
 import React from 'react';
 import RegisterForm from "./RegisterForm";
 import {connect} from 'react-redux';
-import { setUsernameText, setPasswordText, setRepeatPasswordText , setNameText} from '../../store/register/actions';
+import { setUsernameText, setPasswordText, setRepeatPasswordText, setNameText} from '../../store/register/actions';
 
 class RegisterFormContainer extends React.Component {
   render(){
@@ -24,17 +24,18 @@ const mapStateToProps = state => {
   return{
     username: state.register.username,
     password: state.register.password,
+    name: state.register.name,
     repeatPassword: state.register.repeatPassword,
-    name: state.register.name
+    
   };
-};
+}
 
 const mapDispatchToProps = {
   setUsernameText,
   setPasswordText,
   setRepeatPasswordText,
   setNameText
-}
+};
 
 export default connect(
   mapStateToProps,

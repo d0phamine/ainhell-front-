@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button} from "components";
+import Button from "../Button/Button";
 import axios from 'axios';
 import PropTypes from 'prop-types';
 

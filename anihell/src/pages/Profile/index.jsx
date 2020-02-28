@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 
 
 import './Profile.scss'
-import Header from '../../components/Header';
+import Header from '../../components/Header/Header';
 
 const Profile = () =>(
     <div className="profile">
