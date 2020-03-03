@@ -29,18 +29,19 @@ class Header extends React.Component {
   constructor (props) 
   {
     super(props);
+  };
+
+  UpdateProps(props){
+    console.log(this.props.auth)
+    const isSuccess = this.props.auth;
+    if (isSuccess) {
+      return <div>классный хуй</div>
+    } else {
+      return <div>pizdatie yaiza</div>
+    }
   }
 
-
-
   render(){
-    let button;
-    
-    if (this.props.auth === false){
-      button = <Button className="enterButton" ><Link to="login" >Выйти</Link></Button>; 
-    } else {
-      button = <Button className="enterButton"><Link to="login" >Войти</Link></Button>;
-    }
       return(
         <div className='header'>
           <div className='header__logo'>
@@ -58,8 +59,9 @@ class Header extends React.Component {
               <div className="profileblock">
                 <div className="profileblock__avatar"><p>D</p></div> 
                 <Link to="profile"><p>Dophamine</p></Link>
-              </div>  
-              {button}
+              </div>
+              <Button className="enterButton"><Link to="login" >Войти</Link></Button>;
+              <Button className="enterButton" ><Link to="login" >Выйти</Link></Button>;
           </div>
       </div>
     )
