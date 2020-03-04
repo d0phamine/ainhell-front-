@@ -71,9 +71,9 @@ class LoginForm extends Component {
 
     render(){
         
-        // if (this.props.auth === true){
-        //    return (<Redirect to={'/'}/>) 
-        // }
+        if (this.props.auth === true){
+           return (<Redirect to={'/'}/>) 
+        }
 
         return(
             <div>

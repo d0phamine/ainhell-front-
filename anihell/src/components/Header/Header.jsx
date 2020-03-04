@@ -31,17 +31,9 @@ class Header extends React.Component {
     super(props);
   };
 
-  UpdateProps(props){
-    console.log(this.props.auth)
-    const isSuccess = this.props.auth;
-    if (isSuccess) {
-      return <div>классный хуй</div>
-    } else {
-      return <div>pizdatie yaiza</div>
-    }
-  }
 
   render(){
+    if (this.props.auth == true ){
       return(
         <div className='header'>
           <div className='header__logo'>
@@ -60,11 +52,25 @@ class Header extends React.Component {
                 <div className="profileblock__avatar"><p>D</p></div> 
                 <Link to="profile"><p>Dophamine</p></Link>
               </div>
-              <Button className="enterButton"><Link to="login" >Войти</Link></Button>;
+              {/* <Button className="enterButton"><Link to="login" >Войти</Link></Button>; */}
               <Button className="enterButton" ><Link to="login" >Выйти</Link></Button>;
           </div>
       </div>
     )
+    }else {
+      return(
+        <div className='header'>
+          <div className='header__logo'>
+              <img src={hydra} className="hydra"></img>
+              <Link to="/"><h1>AniHell</h1></Link>
+          </div>
+          <div className='header__content'>
+            <Button className="enterButton"><Link to="login" >Войти</Link></Button>;
+          </div>
+      </div>
+      )
+    }
+      
   }  
 }
 
