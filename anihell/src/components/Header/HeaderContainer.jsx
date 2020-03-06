@@ -11,6 +11,7 @@ class HeaderContainer extends React.Component {
                 auth={this.props.auth}
                 username={this.props.username}
                 token={this.props.token}
+                setAuth={this.props.setAuth}
             />
         )
     }

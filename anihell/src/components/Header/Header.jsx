@@ -29,8 +29,14 @@ class Header extends React.Component {
   constructor (props) 
   {
     super(props);
+
+    this.onAuthChange = this.onAuthChange.bind(this)
   };
 
+
+  onAuthChange(state) {
+    this.props.setAuth(state)
+  }
 
   render(){
     if (this.props.auth == true ){
@@ -50,10 +56,10 @@ class Header extends React.Component {
               </Popover>
               <div className="profileblock">
                 <div className="profileblock__avatar"><p>D</p></div> 
-                <Link to="profile"><p>Dophamine</p></Link>
+                <Link to="profile"><p>{this.props.username}</p></Link>
               </div>
               {/* <Button className="enterButton"><Link to="login" >Войти</Link></Button>; */}
-              <Button className="enterButton" ><Link to="login" >Выйти</Link></Button>;
+              <Button className="enterButton" onClick={()=>{this.onAuthChange(false)}} ><Link to="login" >Выйти</Link></Button>;
           </div>
       </div>
     )
